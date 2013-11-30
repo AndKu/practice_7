@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<br>
+{% if user.is_authenticated %}
+	<p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+	<a href="/logout/">Log out</a>
+{% else %}
+	<h1>Create the account</h1>
+	{% if form.errors %}
+		<p class="error">Sorry, that's not a valid username or password</p>
+	{% endif %}
+	<form action="." method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Create the account">
+	</form>
+<a href="/login/">Log in</a> or <a href="/registration/">Registration</a>
+{% endif %}
+</body>
+</html>

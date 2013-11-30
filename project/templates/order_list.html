@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Orders list</title>
+</head>
+<body>
+<h1>Orders list:</h1>
+<table border="1">
+<tr>
+	<th>Book</th>
+	<th>Customer</th>
+	<th>created</th>
+</tr>
+{% for order in object_list %}
+<tr>
+	<td>
+		{{ order.itemld }}
+	</td>
+	<td>
+		<a href="/customers/{{ order.customer.id }}">{{ order.customer }}</a>
+	</td>
+	<td>
+		{{ order.created|date:"d.m.Y в H:i" }}
+	</td>
+</tr>
+{% empty %}
+	<tr><td>Нет заказов</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>

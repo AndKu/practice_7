@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Карточка автора</title>
+</head>
+<body>
+	<ul>
+		<li><a href="/library/">библиотека</a></li>
+		<li><a href="/library/authors/">авторы</a></li>
+	</ul>
+	<h1>{{ author }}</h1>
+	<p>{{ author.year }}</p>
+	<p><a href="mailto:{{ author.email }}" title="написать автору">{{ author.email }}</a></p>
+</body>
+</html>

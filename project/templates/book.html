@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django Application</title>
+</head>
+<body>
+	<ul>
+		<li><a href="/library/">библиотека</a></li>
+		<li><a href="/library/authors/">авторы</a></li>
+	</ul>
+	<h1>{{ book }}</h1>
+	<table border = 1 cellspacing = 0 cellpadding = 5>
+		<tr>
+			<th>Авторы</th>
+			<th>Издательство</th>
+		</tr>
+		<tr>
+			<td>
+			{% for author in book.authors_names %}
+				<a href="{{ author.get_absolute_url }}" >{{ author }}</a></br>
+			{% empty %}
+				<b>-</b>
+			{% endfor %}
+			</td>
+
+			<td>
+				<a href="{{ book.publisher.website }}" >{{ book.publisher }}</a></br>
+				{{ book.publisher.city }},{{ book.publisher.country }}
+			</td>
+
+		</tr>
+	</table>
+</body>
+</html>

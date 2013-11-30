@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django Application</title>
+</head>
+<body>
+	<ul>
+		<li><a href="/library/">библиотека</a></li>
+	</ul>
+	<h1>Авторы</h1>
+	<ul>
+		{% for author in authors %}
+			<li><a href="{{ author.get_absolute_url }}" >{{ author }}</a></br></li>
+		{% empty %}
+			<li>Нет авторов в списке</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
